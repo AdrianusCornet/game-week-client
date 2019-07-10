@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Display from './UserDataDisplay';
-import Login from '../login/LoginContainer';
+import Login from '../login';
 import LogoutButton from '../logout/LogoutButton'
 
 class UserDataContainer extends Component {
