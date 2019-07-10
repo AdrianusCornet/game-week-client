@@ -1,13 +1,17 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-// imp ./
+// componets
+import test from './componets/test'
+import Header from './componets/header/Header'
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <Header />
+      <Route exact path='/test' component={test} />
     </div>
   );
 }
