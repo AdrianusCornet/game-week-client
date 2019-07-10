@@ -13,3 +13,9 @@ export function newUser(userId, name, jwt = '')  {
     payload: newUser
   }
 }
+export function addJwt(jwt) {
+  return{
+    type: ADD_JWT,
+    payload: jwt
+  }
+}

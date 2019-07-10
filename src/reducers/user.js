@@ -1,4 +1,7 @@
-import { NEW_USER } from '../actions/user'
+import {
+  NEW_USER,
+  ADD_JWT
+} from '../actions/user'
 
 const initialState = {
   userId: NaN,
@@ -9,11 +12,15 @@ const initialState = {
 export default function user(state = initialState, { type, payload }) {
   switch (type) {
     case NEW_USER:
-      const newUser = {
+      return {
         ...initialState,
         ...payload
       }
-      return newUser
+    case ADD_JWT:
+      return {
+        ...state,
+        jwt: payload
+      }
     default:
       return state
   }
