@@ -1,7 +1,8 @@
 import {
   NEW_USER,
   ADD_JWT,
-  UPDATE_USERNAME
+  UPDATE_USERNAME,
+  DUMP_USER
 } from '../actions/user'
 
 const initialState = {
@@ -27,6 +28,8 @@ export default function user(state = initialState, { type, payload }) {
         ...state,
         name: payload
       }
+    case DUMP_USER:
+      return initialState
     default:
       return state
   }

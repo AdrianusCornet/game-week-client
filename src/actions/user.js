@@ -1,6 +1,7 @@
 export const NEW_USER = 'NEW_USER'
 export const ADD_JWT = 'ADD_JWT'
 export const UPDATE_USERNAME = 'UPDATE_USERNAME'
+export const DUMP_USER = 'DUMP_USER'
 
 export function newUser(userId, name, jwt = '')  {
   const newUser = {
@@ -20,8 +21,13 @@ export function addJwt(jwt) {
   }
 }
 export function updateUsername(name) {
-  return{
+  return {
     type: UPDATE_USERNAME,
     payload: name
+  }
+}
+export function dumpUser() {
+  return {
+    type: DUMP_USER
   }
 }
