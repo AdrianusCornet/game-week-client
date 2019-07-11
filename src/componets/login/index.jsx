@@ -1,6 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class index extends Component {
+import { newUser } from '../../actions/user'
+
+class index extends Component {
   initialText = {
     name: '',
     password: '',
@@ -29,6 +32,8 @@ export default class index extends Component {
       // sent data
       console.log('data is sent');
 
+      this.props.newUser(1, this.state.name)
+
       this.setState({ ...this.initialText })
     }
   }
@@ -54,3 +59,5 @@ export default class index extends Component {
     )
   }
 }
+
+export default connect(null, {newUser})(index)

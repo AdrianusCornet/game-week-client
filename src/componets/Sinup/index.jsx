@@ -32,6 +32,8 @@ export default class index extends Component {
       console.log('data is sent');
 
       this.setState({ ...this.initialText })
+
+      // return to home page
     }
   }
 
