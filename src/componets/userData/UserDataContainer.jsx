@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 import Display from './UserDataDisplay';
 import Login from '../login';
@@ -18,7 +19,12 @@ class UserDataContainer extends Component {
         </div>
       )
     }
-    return <Login />
+    return (
+      <div>
+        <Login />
+        <Link to='/submit' >Sine up</Link>
+      </div>
+    )
   }
 
   render() {
