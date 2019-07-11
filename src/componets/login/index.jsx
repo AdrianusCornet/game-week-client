@@ -4,7 +4,8 @@ import superagent from 'superagent'
 
 import { newUser } from '../../actions/user'
 
-const baseUrl = 'http://localhost:4000'
+//const baseUrl = 'http://localhost:4000'
+const baseUrl = 'https://game-week-server.herokuapp.com'
 
 class index extends Component {
   initialText = {
