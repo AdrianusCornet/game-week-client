@@ -3,7 +3,7 @@ export const ADD_JWT = 'ADD_JWT'
 export const UPDATE_USERNAME = 'UPDATE_USERNAME'
 export const DUMP_USER = 'DUMP_USER'
 
-export function newUser(userId, name, jwt = '')  {
+export const newUser = (userId, name, jwt = '') => {
   const newUser = {
     userId,
     name,
@@ -14,19 +14,19 @@ export function newUser(userId, name, jwt = '')  {
     payload: newUser
   }
 }
-export function addJwt(jwt) {
+export const addJwt = (jwt) => {
   return{
     type: ADD_JWT,
     payload: jwt
   }
 }
-export function updateUsername(name) {
+export const updateUsername = (name) => {
   return {
     type: UPDATE_USERNAME,
     payload: name
   }
 }
-export function dumpUser() {
+export const dumpUser = () => {
   return {
     type: DUMP_USER
   }
