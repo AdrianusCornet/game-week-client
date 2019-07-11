@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import superagent from 'superagent'
 
-//const baseUrl = 'http://localhost:4000'
+// const baseUrl = 'http://localhost:4000'
 const baseUrl = 'https://game-week-server.herokuapp.com'
 
 export default class index extends Component {
