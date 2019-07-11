@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class index extends Component {
   initialText = {
@@ -19,7 +19,7 @@ export default class index extends Component {
   }
   onSubmit = (event) => {
     event.preventDefault()
-    
+
     this.setState({
       neadUsername: this.state.name ? false : true,
       neadPassword: (this.state.password1 && this.state.password2) && (this.state.password1 === this.state.password2) ? false : true,
@@ -33,6 +33,7 @@ export default class index extends Component {
       this.setState({ ...this.initialText })
 
       // return to home page
+      this.props.history.push('/')
     }
   }
 
