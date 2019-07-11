@@ -19,8 +19,7 @@ export default class index extends Component {
   }
   onSubmit = (event) => {
     event.preventDefault()
-
-    // pw1 = pw2
+    
     this.setState({
       neadUsername: this.state.name ? false : true,
       neadPassword: (this.state.password1 && this.state.password2) && (this.state.password1 === this.state.password2) ? false : true,
