@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import superagent from 'superagent'
+
+const baseUrl = 'http://localhost:4000'
 
 export default class index extends Component {
   initialText = {
@@ -28,12 +31,20 @@ export default class index extends Component {
   traySubmitData() {
     if (!this.state.neadUsername && !this.state.neadPassword) {
       // sent data
-      console.log('data is sent');
+      const data = {
+        username: this.state.name,
+        password: this.state.password1,
+      }
 
-      this.setState({ ...this.initialText })
+      superagent
+        .post(`${baseUrl}/users`)
+        .send(data)
+        .then(response => {
+          this.setState({ ...this.initialText })
 
-      // return to home page
-      this.props.history.push('/')
+          // return to home page
+          this.props.history.push('/')
+        })
     }
   }
 
