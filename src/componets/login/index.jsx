@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import superagent from 'superagent'
 
 import { newUser } from '../../actions/user'
+
+const baseUrl = 'http://localhost:4000'
 
 class index extends Component {
   initialText = {
@@ -30,11 +33,17 @@ class index extends Component {
   traySubmitData() {
     if (!this.state.neadUsername && !this.state.neadPassword) {
       // sent data
-      console.log('data is sent');
+      const data = {
+        username: this.state.name,
+        password: this.state.password
+      }
 
-      this.props.newUser(1, this.state.name)
-
-      this.setState({ ...this.initialText })
+      superagent
+        .post(`${baseUrl}/login`)
+        .send(data)
+        .then(response => {
+          this.props.newUser(response.body.user.id, response.body.user.name, response.body.jwt)
+        })
     }
   }
 
@@ -60,4 +69,4 @@ class index extends Component {
   }
 }
 
-export default connect(null, {newUser})(index)
+export default connect(null, { newUser })(index)
