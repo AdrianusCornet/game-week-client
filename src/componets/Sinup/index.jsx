@@ -3,12 +3,13 @@ import React, { Component } from 'react'
 export default class index extends Component {
   initialText = {
     name: '',
-    password: '',
+    password1: '',
+    password2: '',
     neadUsername: false,
     neadPassword: false,
   }
   state = {
-    ...this.initialText,
+    ...this.initialText
   }
 
   onChange = (event) => {
@@ -19,9 +20,10 @@ export default class index extends Component {
   onSubmit = (event) => {
     event.preventDefault()
 
+    // pw1 = pw2
     this.setState({
       neadUsername: this.state.name ? false : true,
-      neadPassword: this.state.password ? false : true,
+      neadPassword: (this.state.password1 && this.state.password2) && (this.state.password1 === this.state.password2) ? false : true,
     }, this.traySubmitData)
   }
   traySubmitData() {
@@ -42,14 +44,19 @@ export default class index extends Component {
           onChange={this.onChange}
           value={this.state.name} />
         <input
-          name='password'
+          name='password1'
           type='password'
           onChange={this.onChange}
-          value={this.state.password} />
+          value={this.state.password1} />
+        <input
+          name='password2'
+          type='password'
+          onChange={this.onChange}
+          value={this.state.password2} />
         <br />
         <input
           type='submit'
-          value='login' />
+          value='sing up' />
       </form>
     )
   }
